@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="crudapp">
+  <head>
+    <script data-require="angular.js@1.0.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js" data-semver="1.0.7"></script>
+      <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/crudcontroller.js"></script>
+    <script src="app/services/crudservice.js"></script>
+  </head>
+
+  <body ng-controller="retrieveEmpCtrl">
+   
+   <a ui-sref="create">Add New Employee</a>
+   <table border='1'>
+   <tr>
+    <th>Employe ID</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Salary</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Actions</th>
+   </tr>
+   <tr ng-repeat="emp in employees">
+    <td>{{emp.empid}}</td>
+    <td>{{emp.name}}</td>
+    <td>{{emp.age}}</td>
+    <td>{{emp.gender}}</td>
+    <td>{{emp.salary}}</td>
+    <td>{{emp.email}}</td>
+    <td>{{emp.mobile}}</td>
+    <td><a ui-sref="edit({id:emp._id})">Edit</a></td>
+    <td><a ui-sref="delete({id:emp._id})">Delete</a></td>
+   </tr>
+  </table>
+   
+   <div ui-view></div>
+    
+  </body>
+
+</html>

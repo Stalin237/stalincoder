@@ -1,0 +1,23 @@
+<form name="createForm" submit-validate novalidate>
+  <div>
+  	<pre>
+	    <span>
+    		Name     : <input type="text" name="firstname" ng-model="CEC.empdetails.name" ng-pattern="/^[a-zA-Z]*$/" maxlength="10" ng-minlength="4" required><br>
+    		<span ng-show="registerForm.firstname.$error.required && !registerForm.firstname.$pristine">Enter your name.</span>
+    		<span ng-show="registerForm.firstname.$error.minlength && !registerForm.firstname.$pristine">Your name should be a minimum of 4 characters.</span>
+    		<span ng-show="registerForm.firstname.$error.pattern && !registerForm.firstname.$pristine">Your name should contains only characters.</span>
+    	</span>
+	    Age    : <input type="text" ng-model="CEC.empdetails.age"><br>
+	    Gender : <input type="radio" ng-model="CEC.empdetails.gender" value="male">Male
+	    		 <input type="radio" ng-model="CEC.empdetails.gender" value="female">Female<br>
+	    Salary : <input type="number" ng-model="CEC.empdetails.salary"><br>
+	    <span>
+    		Email     : <input type="text" name="email" ng-model="CEC.empdetails.email" ng-pattern="/^[_a-zA-Z0-9]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,10})$/" maxlength="10" ng-minlength="4" required><br>
+    		<span ng-show="registerForm.email.$error.pattern && !registerForm.email.$pristine">Enter a valid email address.</span>
+    	</span>
+	    Mobile : <input type="text" ng-model="CEC.empdetails.mobile"><br>
+	    <button ng-click="CEC.createEmployee(createForm.$valid)">Save</button>
+  	</pre>
+  </div>
+</form>
+        
